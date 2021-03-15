@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    max-height: 100vh;
+    background-color: #36d1dc;
+    font-family: 'poppins';
+    color: white;
+}
+
+#temp-icon{
+    width: 100px;
+    height: 100px;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#temp{
+    text-align: center;
+}
+
+#temp #temp-value{
+    color: white;
+    font-size: 10rem;
+}
+
