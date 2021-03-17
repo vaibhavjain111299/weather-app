@@ -13,7 +13,9 @@
     "webpack": "^5.26.2",
     "webpack-cli": "^4.5.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vaibhavjain111299/weather-app.git"
