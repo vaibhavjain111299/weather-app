@@ -8,6 +8,7 @@ let searchBtn = document.querySelector(".search-btn");
 form.addEventListener('submit', start);
 searchBtn.addEventListener("click", start);
 
+
 function start(e) {
     e.preventDefault();
     console.log('here');
@@ -19,12 +20,10 @@ function getLocation() {
     const input = document.querySelector('input[type="text"]');
     const userLocation = input.value;
     fetchWeather(userLocation);
+    saveLocationLocally(userLocation);
 }
 
 function fetchWeather(location) {
-    let lon;
-    let lat;
-
     const api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=e4f1ef6e9324111786ef50ad293f7cee`;
 
     fetch(api, { method: "get" })
@@ -94,7 +93,9 @@ function fetchWeather(location) {
         })
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+let getWeatherOfCurrentLoc = () => {
+    document.removeEventListener("DOMContentLoaded", getWeatherOfCurrentLoc, false);
+
     let lon;
     let lat;
 
@@ -146,4 +147,39 @@ window.addEventListener("DOMContentLoaded", () => {
                 })
         })
     }
-})
+
+};
+
+document.addEventListener("DOMContentLoaded", getWeatherOfCurrentLoc, false);
+
+window.addEventListener("DOMContentLoaded", getWeather);
+
+function saveLocationLocally(location) {
+    let cityName;
+    if (localStorage.getItem("cityName") === null) {
+        cityName = {};
+    } else {
+        cityName = JSON.parse(localStorage.getItem("cityName"));
+    }
+
+    cityName.name = location;
+    console.log(cityName);
+
+    localStorage.setItem("cityName", JSON.stringify(cityName));
+}
+
+
+function getWeather() {
+    let cityName;
+
+    console.log("inside getweather");
+    if (localStorage.getItem("cityName") === null) {
+        cityName = {};
+    } else {
+        cityName = JSON.parse(localStorage.getItem("cityName"));
+    }
+
+    console.log(cityName.name);
+    fetchWeather(cityName.name);
+
+}
