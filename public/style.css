@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    max-height: 100vh;
+    font-family: 'poppins';
+    color: black;
+}
+
+#temp-icon{
+    width: 100px;
+    height: 100px;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#temp{
+    text-align: center;
+}
+
+#temp #temp-value{
+    font-size: 10rem;
+}
+
+.search-btn{
+    border: none;
+    outline: none;
+    
+}
+
+#form-input{
+    border: none;
+    outline: none;
+}
+
+.form{
+    background-color: #eeeeee;
+}
+
