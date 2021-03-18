@@ -180,7 +180,7 @@ function getWeather() {
                             }
 
                             else if (id > 800 && id < 900) {
-                                tempIcon.src = "./images/clouds.svg";
+                                tempIcon.src = "file:///C:/Users/vaibh/Downloads/clouds.svg";
                             }
                             else {
                                 tempIcon.src = "./images/sun.png";
