@@ -93,7 +93,9 @@ function fetchWeather(location) {
         })
 }
 
-let getWeatherOfCurrentLoc = () => {
+window.addEventListener("load", getWeatherOfCurrentLoc);
+
+function getWeatherOfCurrentLoc() {
     document.removeEventListener("DOMContentLoaded", getWeatherOfCurrentLoc, false);
 
     let lon;
@@ -147,10 +149,8 @@ let getWeatherOfCurrentLoc = () => {
                 })
         })
     }
-
+    window.removeEventListener("load", getWeatherOfCurrentLoc);
 };
-
-document.addEventListener("DOMContentLoaded", getWeatherOfCurrentLoc, false);
 
 window.addEventListener("DOMContentLoaded", getWeather);
 
