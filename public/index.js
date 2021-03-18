@@ -78,7 +78,7 @@ function fetchWeather(location) {
                 }
 
                 else if (id > 800 && id < 900) {
-                    tempIcon.src = "./images/clouds.svg";
+                    tempIcon.src = "public/images/clouds.svg";
                 }
                 else {
                     tempIcon.src = "./images/sun.png";
