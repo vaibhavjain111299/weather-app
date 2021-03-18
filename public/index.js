@@ -71,7 +71,7 @@ function fetchWeather(location) {
                 }
 
                 else if (id > 800 && id < 900) {
-                    tempIcon.src = "http://openweathermap.org/img/wn/10d@2d.png";
+                    tempIcon.src = "http://openweathermap.org/img/wn/10d@2x.png";
                 }
                 else {
                     tempIcon.src = "./public/images/sun.png";
@@ -180,7 +180,7 @@ function getWeather() {
                             }
 
                             else if (id > 800 && id < 900) {
-                                tempIcon.src = "http://openweathermap.org/img/wn/10d@02d.png";
+                                tempIcon.src = "http://openweathermap.org/img/wn/10d@2x.png";
                             }
                             else {
                                 tempIcon.src = "./public/images/sun.png";
