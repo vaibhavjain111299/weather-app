@@ -5,18 +5,11 @@ let tempIcon = document.getElementById("temp-icon");
 let form = document.getElementById("form");
 let searchBtn = document.querySelector(".search-btn");
 
-form.addEventListener('submit', start);
-searchBtn.addEventListener("click", start);
+form.addEventListener('submit', getLocation);
+searchBtn.addEventListener("click", getLocation);
 
-
-function start(e) {
+function getLocation(e) {
     e.preventDefault();
-    console.log('here');
-    getLocation();
-}
-
-function getLocation() {
-    console.log("inside location");
     const input = document.querySelector('input[type="text"]');
     const userLocation = input.value;
     fetchWeather(userLocation);
@@ -34,7 +27,7 @@ function fetchWeather(location) {
                 const { temp } = data.main;
                 const { id, main } = data.weather[0];
                 loc.textContent = name;
-                tempValue.textContent = (temp - 273.15).toFixed(1);
+                tempValue.textContent = (temp - 273.15).toFixed(0);
                 climate.textContent = main;
 
                 if (id >= 200 && id < 300) {
@@ -78,7 +71,7 @@ function fetchWeather(location) {
                 }
 
                 else if (id > 800 && id < 900) {
-                    tempIcon.src = "/images/clouds.svg";
+                    tempIcon.src = "./images/clouds.svg";
                 }
                 else {
                     tempIcon.src = "./images/sun.png";
