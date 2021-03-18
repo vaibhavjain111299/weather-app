@@ -181,6 +181,5 @@ function getWeather() {
 }
 
 window.onbeforeunload = function() {
-  localStorage.removeItem(key);
-  return '';
+  localStorage.clear();
 };
