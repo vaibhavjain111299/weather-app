@@ -68,14 +68,14 @@ function fetchWeather(location) {
                 }
 
                 else if (id >= 700 && id < 800) {
-                    tempIcon.src = './public/images/haze.png';
+                    tempIcon.src = 'http://openweathermap.org/img/wn/50d@2x.png';
                 }
 
                 else if (id > 800 && id < 900) {
-                    tempIcon.src = "http://openweathermap.org/img/wn/10d@2x.png";
+                    tempIcon.src = "http://openweathermap.org/img/wn/03d@2x.png";
                 }
                 else {
-                    tempIcon.src = "./public/images/sun.png";
+                    tempIcon.src = "http://openweathermap.org/img/wn/01d@2x.png";
                 }
 
 
@@ -184,7 +184,7 @@ function getWeather() {
                                 tempIcon.src = "http://openweathermap.org/img/wn/03d@2x.png";
                             }
                             else {
-                                tempIcon.src = "./public/images/sun.png";
+                                tempIcon.src = "http://openweathermap.org/img/wn/01d@2x.png";
                             }
                         })
                     })
