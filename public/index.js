@@ -31,50 +31,50 @@ function fetchWeather(location) {
                 climate.textContent = main;
 
                 if (id >= 200 && id < 300) {
-                    tempIcon.src = "./images/thunderstorm-clouds.svg";
+                    tempIcon.src = "./public/images/thunderstorm-clouds.svg";
                 }
 
                 else if (id >= 300 && id < 400) {
-                    tempIcon.src = "./images/drizzle.svg";
+                    tempIcon.src = "./public/images/drizzle.svg";
                 }
 
                 else if (id >= 500 && id < 600) {
-                    tempIcon.src = "./images/rainy.png";
+                    tempIcon.src = "./public/images/rainy.png";
                 }
 
                 else if (id >= 600 && id < 700) {
-                    tempIcon.src = "./images/snowflake.svg";
+                    tempIcon.src = "./public/images/snowflake.svg";
                 }
 
                 else if (id == 701) {
-                    tempIcon.src = "./images/mist.png";
+                    tempIcon.src = "./public/images/mist.png";
                 }
 
                 else if (id === 711) {
-                    tempIcon.src = "./images/factory.png";
+                    tempIcon.src = "./public/images/factory.png";
                 }
 
                 else if (id === 731) {
-                    tempIcon.src = "./images/dust.png";
+                    tempIcon.src = "./public/images/dust.png";
                 }
 
                 else if (id === 741) {
-                    tempIcon.src = "./images/fog.svg";
+                    tempIcon.src = "./public/images/fog.svg";
                 }
 
                 else if (id === 751) {
-                    tempIcon.src = "./images/sand.png";
+                    tempIcon.src = "./public/images/sand.png";
                 }
 
                 else if (id >= 700 && id < 800) {
-                    tempIcon.src = './images/haze.png';
+                    tempIcon.src = './public/images/haze.png';
                 }
 
                 else if (id > 800 && id < 900) {
-                    tempIcon.src = "C:/Users/vaibh/Downloads/clouds.svg";
+                    tempIcon.src = "./public/images/clouds.svg";
                 }
                 else {
-                    tempIcon.src = "./images/sun.png";
+                    tempIcon.src = "./public/images/sun.png";
                 }
 
 
@@ -140,50 +140,50 @@ function getWeather() {
                             climate.textContent = main;
 
                             if (id >= 200 && id < 300) {
-                                tempIcon.src = "./images/thunderstorm-clouds.svg";
+                                tempIcon.src = "./public/images/thunderstorm-clouds.svg";
                             }
 
                             else if (id >= 300 && id < 400) {
-                                tempIcon.src = "./images/drizzle.svg";
+                                tempIcon.src = "./public/images/drizzle.svg";
                             }
 
                             else if (id >= 500 && id < 600) {
-                                tempIcon.src = "./images/rainy.png";
+                                tempIcon.src = "./public/images/rainy.png";
                             }
 
                             else if (id >= 600 && id < 700) {
-                                tempIcon.src = "./images/snowflake.svg";
+                                tempIcon.src = "./public/images/snowflake.svg";
                             }
                             
                             else if (id == 701) {
-                                tempIcon.src = "./images/mist.png";
+                                tempIcon.src = "./public/images/mist.png";
                             }
 
                             else if (id === 711) {
-                                tempIcon.src = "./images/factory.png";
+                                tempIcon.src = "./public/images/factory.png";
                             }
 
                             else if (id === 731) {
-                                tempIcon.src = "./images/dust.png";
+                                tempIcon.src = "./public/images/dust.png";
                             }
 
                             else if (id === 741) {
-                                tempIcon.src = "./images/fog.svg";
+                                tempIcon.src = "./public/images/fog.svg";
                             }
 
                             else if (id === 751) {
-                                tempIcon.src = "./images/sand.png";
+                                tempIcon.src = "./public/images/sand.png";
                             }
 
                             else if (id >= 700 && id < 800) {
-                                tempIcon.src = './images/haze.png';
+                                tempIcon.src = './public/images/haze.png';
                             }
 
                             else if (id > 800 && id < 900) {
-                                tempIcon.src = "C:/Users/vaibh/Downloads/clouds.svg";
+                                tempIcon.src = "./public/images/clouds.svg";
                             }
                             else {
-                                tempIcon.src = "./images/sun.png";
+                                tempIcon.src = "./public/images/sun.png";
                             }
                         })
                     })
