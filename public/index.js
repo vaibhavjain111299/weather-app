@@ -97,16 +97,16 @@ window.addEventListener("DOMContentLoaded", getWeather);
 
 function saveLocationLocally(location) {
     let cityName;
-    if (localStorage.getItem("cityName") === null) {
+    if (sessionStorage.getItem("cityName") === null) {
         cityName = {};
     } else {
-        cityName = JSON.parse(localStorage.getItem("cityName"));
+        cityName = JSON.parse(sessionStorage.getItem("cityName"));
     }
 
     cityName.name = location;
     console.log(cityName);
 
-    localStorage.setItem("cityName", JSON.stringify(cityName));
+    sessionStorage.setItem("cityName", JSON.stringify(cityName));
 }
 
 
@@ -114,10 +114,10 @@ function getWeather() {
     let cityName;
 
     console.log("inside getweather");
-    if (localStorage.getItem("cityName") === null) {
+    if (sessionStorage.getItem("cityName") === null) {
         cityName = {};
     } else {
-        cityName = JSON.parse(localStorage.getItem("cityName"));
+        cityName = JSON.parse(sessionStorage.getItem("cityName"));
     }
 
     console.log(cityName.name);
@@ -161,12 +161,32 @@ function getWeather() {
                             else if (id >= 600 && id < 700) {
                                 tempIcon.src = "./images/snowflake.svg";
                             }
+                            
+                            else if (id == 701) {
+                                tempIcon.src = "./images/mist.png";
+                            }
+
+                            else if (id === 711) {
+                                tempIcon.src = "./images/factory.png";
+                            }
+
+                            else if (id === 731) {
+                                tempIcon.src = "./images/dust.png";
+                            }
+
+                            else if (id === 741) {
+                                tempIcon.src = "./images/fog.svg";
+                            }
+
+                            else if (id === 751) {
+                                tempIcon.src = "./images/sand.png";
+                            }
 
                             else if (id >= 700 && id < 800) {
                                 tempIcon.src = './images/haze.png';
                             }
 
-                            else if (id >= 800 && id < 900) {
+                            else if (id > 800 && id < 900) {
                                 tempIcon.src = "./images/clouds.svg";
                             }
                             else {
@@ -179,7 +199,3 @@ function getWeather() {
     }
 
 }
-
-window.onbeforeunload = function() {
-  localStorage.clear();
-};
