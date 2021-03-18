@@ -78,7 +78,7 @@ function fetchWeather(location) {
                 }
 
                 else if (id > 800 && id < 900) {
-                    tempIcon.src = "public/images/clouds.svg";
+                    tempIcon.src = "/images/clouds.svg";
                 }
                 else {
                     tempIcon.src = "./images/sun.png";
@@ -92,65 +92,6 @@ function fetchWeather(location) {
             )
         })
 }
-
-window.addEventListener("load", getWeatherOfCurrentLoc, {once: true});
-
-function getWeatherOfCurrentLoc() {
-    document.removeEventListener("DOMContentLoaded", getWeatherOfCurrentLoc, false);
-
-    let lon;
-    let lat;
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            lon = position.coords.longitude;
-            lat = position.coords.latitude;
-
-            const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e4f1ef6e9324111786ef50ad293f7cee`;
-
-            fetch(api, { method: "get" })
-                .then(function (response) {
-                    response.json().then(data => {
-                        console.log(data);
-                        const { name } = data;
-                        const { temp } = data.main;
-                        const { id, main } = data.weather[0];
-                        loc.textContent = name;
-                        tempValue.textContent = (temp - 273.15).toFixed(1);
-                        climate.textContent = main;
-
-                        if (id >= 200 && id < 300) {
-                            tempIcon.src = "./images/thunderstorm-clouds.svg";
-                        }
-
-                        else if (id >= 300 && id < 400) {
-                            tempIcon.src = "./images/drizzle.svg";
-                        }
-
-                        else if (id >= 500 && id < 600) {
-                            tempIcon.src = "./images/rainy.png";
-                        }
-
-                        else if (id >= 600 && id < 700) {
-                            tempIcon.src = "./images/snowflake.svg";
-                        }
-
-                        else if (id >= 700 && id < 800) {
-                            tempIcon.src = './images/haze.png';
-                        }
-
-                        else if (id >= 800 && id < 900) {
-                            tempIcon.src = "./images/clouds.svg";
-                        }
-                        else {
-                            tempIcon.src = "./images/sun.png";
-                        }
-                    })
-                })
-        })
-    }
-    window.removeEventListener("load", getWeatherOfCurrentLoc);
-};
 
 window.addEventListener("DOMContentLoaded", getWeather);
 
@@ -181,5 +122,60 @@ function getWeather() {
 
     console.log(cityName.name);
     fetchWeather(cityName.name);
+    
+    if (cityName.name === undefined) {
+
+        let lon;
+        let lat;
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                lon = position.coords.longitude;
+                lat = position.coords.latitude;
+
+                const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e4f1ef6e9324111786ef50ad293f7cee`;
+
+                fetch(api, { method: "get" })
+                    .then(function (response) {
+                        response.json().then(data => {
+                            console.log(data);
+                            const { name } = data;
+                            const { temp } = data.main;
+                            const { id, main } = data.weather[0];
+                            loc.textContent = name;
+                            tempValue.textContent = (temp - 273).toFixed(0);
+                            climate.textContent = main;
+
+                            if (id >= 200 && id < 300) {
+                                tempIcon.src = "./images/thunderstorm-clouds.svg";
+                            }
+
+                            else if (id >= 300 && id < 400) {
+                                tempIcon.src = "./images/drizzle.svg";
+                            }
+
+                            else if (id >= 500 && id < 600) {
+                                tempIcon.src = "./images/rainy.png";
+                            }
+
+                            else if (id >= 600 && id < 700) {
+                                tempIcon.src = "./images/snowflake.svg";
+                            }
+
+                            else if (id >= 700 && id < 800) {
+                                tempIcon.src = './images/haze.png';
+                            }
+
+                            else if (id >= 800 && id < 900) {
+                                tempIcon.src = "./images/clouds.svg";
+                            }
+                            else {
+                                tempIcon.src = "./images/sun.png";
+                            }
+                        })
+                    })
+            })
+        }
+    }
 
 }
