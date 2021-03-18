@@ -93,7 +93,7 @@ function fetchWeather(location) {
         })
 }
 
-window.addEventListener("load", getWeatherOfCurrentLoc);
+window.addEventListener("load", getWeatherOfCurrentLoc, {once: true});
 
 function getWeatherOfCurrentLoc() {
     document.removeEventListener("DOMContentLoaded", getWeatherOfCurrentLoc, false);
