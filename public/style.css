@@ -26,6 +26,10 @@ body{
 
 #temp{
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 #temp #temp-value{
@@ -50,4 +54,12 @@ body{
 #location{
     font-size: 2rem;
 }
+
+.loc-climate{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items:flex-start ;
+}
+
 
