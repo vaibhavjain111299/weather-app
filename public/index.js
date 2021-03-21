@@ -26,59 +26,12 @@ function fetchWeather(location) {
                 console.log(data);
                 const { name } = data;
                 const { temp } = data.main;
-                const { id, main } = data.weather[0];
-                loc.textContent = name;
+                const { main, icon } = data.weather[0];
+                const { country } = data.sys;
+                loc.textContent = `${name}, ${country}`;
                 tempValue.textContent = (temp - 273.15).toFixed(0);
                 climate.textContent = main;
-
-                if (id >= 200 && id < 300) {
-                    tempIcon.src = "./public/images/thunderstorm-clouds.svg";
-                }
-
-                else if (id >= 300 && id < 400) {
-                    tempIcon.src = "./public/images/drizzle.svg";
-                }
-
-                else if (id >= 500 && id < 600) {
-                    tempIcon.src = "./public/images/rainy.png";
-                }
-
-                else if (id >= 600 && id < 700) {
-                    tempIcon.src = "./public/images/snowflake.svg";
-                }
-
-                else if (id == 701) {
-                    tempIcon.src = "./public/images/mist.png";
-                }
-
-                else if (id === 711) {
-                    tempIcon.src = "./public/images/factory.png";
-                }
-
-                else if (id === 731) {
-                    tempIcon.src = "./public/images/dust.png";
-                }
-
-                else if (id === 741) {
-                    tempIcon.src = "./public/images/fog.svg";
-                }
-
-                else if (id === 751) {
-                    tempIcon.src = "./public/images/sand.png";
-                }
-
-                else if (id >= 700 && id < 800) {
-                    tempIcon.src = 'http://openweathermap.org/img/wn/50d@2x.png';
-                }
-
-                else if (id > 800 && id < 900) {
-                    tempIcon.src = "http://openweathermap.org/img/wn/03d@2x.png";
-                }
-                else {
-                    tempIcon.src = "http://openweathermap.org/img/wn/01d@2x.png";
-                }
-
-
+                tempIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
 
             }
@@ -135,57 +88,12 @@ function getWeather() {
                             console.log(data);
                             const { name } = data;
                             const { temp } = data.main;
-                            const { id, main } = data.weather[0];
-                            loc.textContent = name;
-                            tempValue.textContent = (temp - 273.15).toFixed(0);
+                            const { main, icon } = data.weather[0];
+                            const { country } = data.sys;
+                            loc.textContent = `${name}, ${country}`;
+                            tempValue.textContent = (temp - 273).toFixed(0);
                             climate.textContent = main;
-
-                            if (id >= 200 && id < 300) {
-                                tempIcon.src = "./public/images/thunderstorm-clouds.svg";
-                            }
-
-                            else if (id >= 300 && id < 400) {
-                                tempIcon.src = "./public/images/drizzle.svg";
-                            }
-
-                            else if (id >= 500 && id < 600) {
-                                tempIcon.src = "./public/images/rainy.png";
-                            }
-
-                            else if (id >= 600 && id < 700) {
-                                tempIcon.src = "./public/images/snowflake.svg";
-                            }
-                            
-                            else if (id == 701) {
-                                tempIcon.src = "./public/images/mist.png";
-                            }
-
-                            else if (id === 711) {
-                                tempIcon.src = "./public/images/factory.png";
-                            }
-
-                            else if (id === 731) {
-                                tempIcon.src = "./public/images/dust.png";
-                            }
-
-                            else if (id === 741) {
-                                tempIcon.src = "./public/images/fog.svg";
-                            }
-
-                            else if (id === 751) {
-                                tempIcon.src = "./public/images/sand.png";
-                            }
-
-                            else if (id >= 700 && id < 800) {
-                                tempIcon.src = ' http://openweathermap.org/img/wn/50d@2x.png';
-                            }
-
-                            else if (id > 800 && id < 900) {
-                                tempIcon.src = "http://openweathermap.org/img/wn/03d@2x.png";
-                            }
-                            else {
-                                tempIcon.src = "http://openweathermap.org/img/wn/01d@2x.png";
-                            }
+                            tempIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
                         })
                     })
             })
