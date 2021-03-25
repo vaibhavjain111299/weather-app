@@ -7,14 +7,16 @@ let searchBtn = document.querySelector(".search-btn");
 
 form.addEventListener('submit', getLocation);
 searchBtn.addEventListener("click", getLocation);
+window.addEventListener("DOMContentLoaded", getWeather);
 
 function getLocation(e) {
     e.preventDefault();
     const input = document.querySelector('input[type="text"]');
     const userLocation = input.value;
+    insertParam("q", userLocation);
     form.reset();
-    fetchWeather(userLocation);
-    saveLocationLocally(userLocation);
+    //fetchWeather(userLocation);
+    //saveLocationLocally(userLocation);
 }
 
 function fetchWeather(location) {
@@ -40,9 +42,35 @@ function fetchWeather(location) {
         })
 }
 
-window.addEventListener("DOMContentLoaded", getWeather);
+function insertParam(key, value) {
+    key = encodeURIComponent(key);
+    value = encodeURIComponent(value);
 
-function saveLocationLocally(location) {
+    // kvp looks like ['key1=value1', 'key2=value2', ...]
+    var kvp = document.location.search.substr(1).split('&');
+    let i = 0;
+
+    for (; i < kvp.length; i++) {
+        if (kvp[i].startsWith(key + '=')) {
+            let pair = kvp[i].split('=');
+            pair[1] = value;
+            kvp[i] = pair.join('=');
+            break;
+        }
+    }
+
+    if (i >= kvp.length) {
+        kvp[kvp.length] = [key, value].join('=');
+    }
+
+    // can return this or...
+    let params = kvp.join('?');
+
+    // reload page with new params
+    document.location.search = params;
+}
+
+/*function saveLocationLocally(location) {
     let cityName;
     if (sessionStorage.getItem("cityName") === null) {
         cityName = {};
@@ -54,11 +82,11 @@ function saveLocationLocally(location) {
     console.log(cityName);
 
     sessionStorage.setItem("cityName", JSON.stringify(cityName));
-}
+}*/
 
 
 function getWeather() {
-    let cityName;
+    /*let cityName;
 
     console.log("inside getweather");
     if (sessionStorage.getItem("cityName") === null) {
@@ -67,11 +95,15 @@ function getWeather() {
         cityName = JSON.parse(sessionStorage.getItem("cityName"));
     }
 
-    console.log(cityName.name);
-    fetchWeather(cityName.name);
+    console.log(cityName.name);*/
     
-    if (cityName.name === undefined) {
-
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    
+    //fetchWeather(cityName.name);
+    
+    //if (cityName.name === undefined) {
+     if (url.search == "") {
         let lon;
         let lat;
 
@@ -98,6 +130,10 @@ function getWeather() {
                     })
             })
         }
+    }
+    else {
+        let currentLocation = url.searchParams.get("q");
+        fetchWeather(currentLocation);
     }
 
 }
